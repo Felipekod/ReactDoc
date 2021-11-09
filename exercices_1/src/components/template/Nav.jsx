@@ -8,5 +8,8 @@ export default props =>
         <Link to="/">
             <i className="fa fa-home"></i> Début
         </Link>
+        <Link to="/exercices_1">
+            <i className="fa fa-home"></i> Exercices 1
+        </Link>
     </nav>
 </aside>
