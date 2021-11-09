@@ -23,7 +23,7 @@ function FormattedDate(props){
     return <h3>It's {props.date.toLocaleTimeString()}.</h3>
 }
 
-//Classe qui renderise un component horloge.
+//Classe qui renderise un element horloge.
 class Clock extends React.Component {
     constructor(props){
         super(props)
@@ -48,6 +48,45 @@ class Clock extends React.Component {
 }
 
 
+//Classe qui renderise un compteur
+class Timer extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {compteur: 0}
+        
+        //bind
+        this.resetTimer = this.resetTimer.bind(this)
+    }
+    //Methodes Mount et Unmount pour le cicle de view du component
+    componentDidMount(){
+        this.timer = setInterval(
+            ()=> this.tick(),
+            1000)
+    }
+    componentWillUnmount(){
+        clearInterval(this.timer)
+    }
+    tick(){
+        let newTimer = this.state.compteur + 1
+        this.setState({compteur: newTimer})
+    }
+    resetTimer(){
+        this.setState(() => ({
+            compteur: 0
+        }))
+    }
+    
+    render(){
+        return ( 
+            <div>
+                <h3>{this.state.compteur}</h3>
+                <button onClick={this.resetTimer}>Reseter compteur</button>
+            </div>
+        )
+    }
+}
+
+
 export default props => 
     <Main icon="home" title="Exercices 1" subtittle="Portifolio">
         <div className='display-4'>Exercices 1!</div>
@@ -61,6 +100,10 @@ export default props =>
         <Clock />
         <hr/>
         <form onSubmit={handleSubmit}><button type="submit">Send console.log</button></form>
+        <hr/>
+        <Timer />
+        
+
 
     </Main>
 
