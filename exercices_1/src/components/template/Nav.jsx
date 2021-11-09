@@ -14,5 +14,8 @@ export default props =>
         <Link to="/exercice_2">
             <i className="fa fa-home"></i> Exercices 2
         </Link>
+        <Link to="/exercice_3">
+            <i className="fa fa-home"></i> Exercices 3
+        </Link>
     </nav>
 </aside>
