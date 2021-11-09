@@ -1,5 +1,4 @@
 import React from 'react'
-import { ReactDOM } from 'react'
 import Main from '../template/Main'
 
 function formatName(user){
@@ -14,7 +13,11 @@ const user = {
 function Welcome(props){
     return <h3>Hello, {props.name}</h3>
 }
-
+//Function pour le submit (evenement) 
+function handleSubmit(e){
+    e.preventDefault()
+    console.log("U did it")
+}
 //Formate la date pour l'horloge ci-dessous
 function FormattedDate(props){
     return <h3>It's {props.date.toLocaleTimeString()}.</h3>
@@ -56,7 +59,8 @@ export default props =>
         <hr/>
         <h2>React.component class avec state</h2>
         <Clock />
-        
+        <hr/>
+        <form onSubmit={handleSubmit}><button type="submit">Send console.log</button></form>
 
     </Main>
 
