@@ -15,6 +15,11 @@ function Welcome(props){
     return <h3>Hello, {props.name}</h3>
 }
 
+//Formate la date pour l'horloge ci-dessous
+function FormattedDate(props){
+    return <h3>It's {props.date.toLocaleTimeString()}.</h3>
+}
+
 //Classe qui renderise un component horloge.
 class Clock extends React.Component {
     constructor(props){
@@ -35,7 +40,7 @@ class Clock extends React.Component {
     }
 
     render() {
-        return <h3>It's {this.state.date.toLocaleTimeString()}.</h3>
+        return <FormattedDate date={this.state.date} /> //<h3>It's {this.state.date.toLocaleTimeString()}.</h3>
     }
 }
 
