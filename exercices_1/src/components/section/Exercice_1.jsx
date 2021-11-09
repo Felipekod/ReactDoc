@@ -57,6 +57,7 @@ class Timer extends React.Component{
         //bind necessaire pour le callback
         this.resetTimer = this.resetTimer.bind(this)
         this.ajouterDix = this.ajouterDix.bind(this)
+        this.ajouterMusk = this.ajouterMusk.bind(this)
     }
     //Methodes Mount et Unmount pour le cicle de view du component
     componentDidMount(){
@@ -82,6 +83,12 @@ class Timer extends React.Component{
             compteur: newTimer
         }))
     }
+    ajouterMusk(){
+        let newTimer = this.state.compteur + 300000000000
+        this.setState(() => ({
+            compteur: newTimer
+        }))
+    }
     
     render(){
         return ( 
@@ -89,6 +96,7 @@ class Timer extends React.Component{
                 <h3>{this.state.compteur}</h3>
                 <button className="btn btn-primary ml-1" onClick={this.resetTimer}>Reseter compteur</button>
                 <button className="btn btn-secondary ml-1"  onClick={this.ajouterDix}>Ajouter dix</button>
+                <button className="btn btn-secondary ml-1"  onClick={this.ajouterMusk}>Elon Musk!</button>
             </div>
         )
     }
