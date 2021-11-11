@@ -23,17 +23,22 @@ class Photos extends Component {
     renderLi(){
         return this.state.list.map(photo => {
             return (
-                <li className="pictureBox"  key={photo.id}>
-                    <img className="picture" src={require('../../assets/pictures/' + photo.fileName + '.jpeg').default}/>
+                <li className="picture_box"  key={photo.id}>
+                    <img className="picture item" src={require('../../assets/pictures/' + photo.fileName + '.jpeg').default}/>
                 </li>
             )
         })
     }
 
     render(){
-        return <ul className="picture_list" >
-            {this.renderLi()}
-        </ul>
+        return (
+            <div className="container">
+                <ul className="picture_list" >
+                {this.renderLi()}
+                </ul>
+            </div>
+        )
+
     }
 }
 

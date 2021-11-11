@@ -1,12 +1,23 @@
-.picture_list {
-    width: fit-content;
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
+.container{
+    max-width: 900px;
+}
 
+.picture_box:first-child{
+    margin-top: 30px;
+}
+
+.picture_box{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.picture_list {
+    width: 800px;
+    list-style-type: none;
+    display:-webkit-inline-box;
 }
 
 .picture {
-    max-width: 400px;
+    max-width: 900px;
     max-height: 600px;
 }
