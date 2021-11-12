@@ -10,8 +10,13 @@ const photos = [
     },
     {
         src: "https://i.imgur.com/b5tIvta.jpg",
-        width: 1,
-        height: 1
+        width: 4,
+        height: 3
+    },
+    {
+        src: 'https://i.imgur.com/k7EuMsz.jpg',
+        width: 2,
+        height: 2
     }
 ]
 
@@ -30,6 +35,7 @@ export default props =>
     <Main icon="home" title="Exercices 5" subtittle="Portifolio">
         <div className='display-4'>Exercices 5!</div>
         <hr/>
+        <h3>Framework responsive react-photo-gallery</h3>
         <BasicRows className='gallery'/>
         
         
