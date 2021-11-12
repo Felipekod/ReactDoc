@@ -14,7 +14,6 @@
 .picture_list {
     width: 800px;
     list-style-type: none;
-    display:-webkit-inline-box;
 }
 
 .picture {
