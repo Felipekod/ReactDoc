@@ -17,6 +17,11 @@ const photos = [
         src: 'https://i.imgur.com/k7EuMsz.jpg',
         width: 2,
         height: 2
+    },
+    {
+        src: 'https://i.imgur.com/d1VsVpx.jpg',
+        width: 2,
+        height: 3
     }
 ]
 
