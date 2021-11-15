@@ -84,7 +84,7 @@ class Timer extends React.Component{
         }))
     }
     ajouterMusk(){
-        let newTimer = this.state.compteur + 300000000000
+        let newTimer = this.state.compteur + 300000000000 
         this.setState(() => ({
             compteur: newTimer
         }))
