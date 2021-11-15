@@ -2,31 +2,38 @@
     "photos": [
         {
             "id": 1,
-            "fileName": "p1"
+            "fileName": "p1",
+            "nom": "Montréal nuit"
         },
         {
             "id": 2,
-            "fileName": "p2"
+            "fileName": "p2",
+            "nom": "Habitant de la montagne"
         },
         {
             "id": 3,
-            "fileName": "p3"
+            "fileName": "p3",
+            "nom": "Fleur"
         },
         {
             "id": 4,
-            "fileName": "p4"
+            "fileName": "p4",
+            "nom": "Montréal street art"
         },
         {
             "id": 5,
-            "fileName": "p5"
+            "fileName": "p5",
+            "nom": "Montréal street art"
         },
         {
             "id": 6,
-            "fileName": "p6"
+            "fileName": "p6",
+            "nom": "Montréal street art"
         },
         {
             "id": 7,
-            "fileName": "p7"
+            "fileName": "p7",
+            "nom": "Montréal Notre Dame"
         }
     ]
 }
