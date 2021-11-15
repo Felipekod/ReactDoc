@@ -9,22 +9,25 @@ export default props =>
             <i className="fa fa-home"></i> Début
         </Link>
         <Link to="/exercice_1">
-            <i className="fa fa-home"></i> Exercices 1
+            <i className="fa fa-home"></i> Premiers exercices
         </Link>
         <Link to="/exercice_2">
-            <i className="fa fa-home"></i> Exercices 2
+            <i className="fa fa-home"></i> Login button
         </Link>
         <Link to="/exercice_3">
-            <i className="fa fa-home"></i> Exercices 3
+            <i className="fa fa-home"></i> Listes et clés
         </Link>
         <Link to="/exercice_4">
-            <i className="fa fa-home"></i> Exercices 4 - Photos
+            <i className="fa fa-home"></i> Photos avec backend
         </Link>
         <Link to="/exercice_5">
-            <i className="fa fa-home"></i> Exercices 5
+            <i className="fa fa-home"></i> photo-gallery framework
         </Link>
         <Link to="/exercice_6">
-            <i className="fa fa-home"></i> Exercices 6
+            <i className="fa fa-home"></i> Forms
+        </Link>
+        <Link to="/exercice_7">
+            <i className="fa fa-home"></i> Faire remonter l'état
         </Link>
     </nav>
 </aside>

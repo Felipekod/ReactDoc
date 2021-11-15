@@ -8,6 +8,7 @@ import Exercice_3 from "../components/section/Exercice_3";
 import Exercice_4 from "../components/section/Exercice_4";
 import Exercice_5 from "../components/section/Exercice_5";
 import Exercice_6 from "../components/section/Exercice_6";
+import Exercice_7 from "../components/section/Exercice_7";
 
 
 export default props => 
@@ -19,5 +20,6 @@ export default props =>
         <Route path="/exercice_4"><Exercice_4/></Route>
         <Route path="/exercice_5"><Exercice_5/></Route>
         <Route path="/exercice_6"><Exercice_6/></Route>
+        <Route path="/exercice_7"><Exercice_7/></Route>
         <Redirect from='*' to='/' />
     </Switch>
