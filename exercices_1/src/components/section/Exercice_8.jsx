@@ -18,6 +18,20 @@ class Produits extends Component {
         this.setState({list: body});
     }
 
+    //Function que DELETE un produit puis mets à jour la liste.
+    async remove(id) { 
+        await fetch(`/api/products/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        }).then(() => {
+          let updatedList = [...this.state.list].filter(i => i.id !== id);
+          this.setState({list: updatedList});
+        });
+      }
+
     renderLi(){
         return this.state.list.map(produit => {
             return (
@@ -28,7 +42,7 @@ class Produits extends Component {
                     <td>{produit.rabais}</td>
                     <td>
                         <button className="btn btn-primary">Éditer</button>
-                        <button className="btn btn-danger">Effacer</button>
+                        <button className="btn btn-danger" onClick={() => this.remove(produit.id)}>Effacer</button>
                     </td>
                 </tr>
             )
