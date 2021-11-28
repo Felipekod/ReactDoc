@@ -26,6 +26,10 @@ class Produits extends Component {
                     <td>{produit.nom}</td>
                     <td>{produit.prix}</td>
                     <td>{produit.rabais}</td>
+                    <td>
+                        <button className="btn btn-primary">Éditer</button>
+                        <button className="btn btn-danger">Effacer</button>
+                    </td>
                 </tr>
             )
         })
@@ -34,12 +38,13 @@ class Produits extends Component {
     render(){
         return (
             <div>
-                <table className="table">
+                <table className="table table-striped">
                     <tr>
                         <th>Id</th>
                         <th>Nom</th>
                         <th>Prix</th>
                         <th>Rabais</th>
+                        <th>Action</th>
                     </tr>
                      {this.renderLi()}
                 </table>
