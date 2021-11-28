@@ -5,7 +5,7 @@ import './Exercice_4.css'
 
 const baseUrl = 'http://localhost:3001/photos'
 const initialState = {
-    photo: {id: '', fileName: ''},
+    photo: {},
     list: []
 }
 
@@ -23,7 +23,7 @@ class Photos extends Component {
     renderLi(){
         return this.state.list.map(photo => {
             return (
-                <li className="picture_box"  key={photo.id}>
+                <li className="picture_box" >
                     <img className="picture item" src={require('../../assets/pictures/' + photo.fileName + '.jpeg').default}/>
                     <div className='description'>
                         <h4><b>{photo.nom}</b></h4>
@@ -37,7 +37,7 @@ class Photos extends Component {
         return (
             <div className="container">
                 <ul className="picture_list" >
-                {this.renderLi()}
+                    {this.renderLi()}
                 </ul>
             </div>
         )

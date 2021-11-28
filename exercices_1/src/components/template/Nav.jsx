@@ -29,5 +29,8 @@ export default props =>
         <Link to="/exercice_7">
             <i className="fa fa-home"></i> Faire remonter l'état
         </Link>
+        <Link to="/exercice_8">
+            <i className="fa fa-home"></i> Spring Boot BackEnd
+        </Link>
     </nav>
 </aside>

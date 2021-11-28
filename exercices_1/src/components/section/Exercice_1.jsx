@@ -1,6 +1,8 @@
 import React from 'react'
 import Main from '../template/Main'
 
+//RUN NPM START
+
 function formatName(user){
     return user.firstName + ' ' + user.lastName
 }

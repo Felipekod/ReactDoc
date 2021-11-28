@@ -35,5 +35,18 @@
             "fileName": "p7",
             "nom": "Montréal Notre Dame"
         }
+    ],
+
+    "produits": [
+        {
+            "id": 1,
+            "fileName": "p1",
+            "nom": "Montréal nuit"
+        },
+        {
+            "id": 2,
+            "fileName": "p2",
+            "nom": "Habitant de la montagne"
+        }
     ]
 }
