@@ -10,6 +10,8 @@ import Exercice_5 from "../components/section/Exercice_5";
 import Exercice_6 from "../components/section/Exercice_6";
 import Exercice_7 from "../components/section/Exercice_7";
 import Exercice_8 from "../components/section/Exercice_8";
+import ListeProduitEdit from "../components/section/ListeProduitEdit"
+
 
 
 export default props => 
@@ -23,5 +25,6 @@ export default props =>
         <Route path="/exercice_6"><Exercice_6/></Route>
         <Route path="/exercice_7"><Exercice_7/></Route>
         <Route path="/exercice_8"><Exercice_8/></Route>
+        <Route path='/ListeProduitEdit/:id'><ListeProduitEdit/></Route>
         <Redirect from='*' to='/' />
     </Switch>

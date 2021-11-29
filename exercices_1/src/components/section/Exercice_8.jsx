@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import axios from 'axios'
 import Main from '../template/Main'
 import APIService from './APIService'
+import ListeEdit from './ListeProduitEdit'
+import { Link, withRouter } from 'react-router-dom'
 
 const baseUrl = 'http://localhost:8080/api/products'
 const initialState = {
@@ -41,8 +43,11 @@ class Produits extends Component {
                     <td>{produit.prix}</td>
                     <td>{produit.rabais}</td>
                     <td>
-                        <button className="btn btn-primary">Éditer</button>
-                        <button className="btn btn-danger" onClick={() => this.remove(produit.id)}>Effacer</button>
+                        <Link to={"/ListeProduitEdit/" + produit.id}>
+                          <i className="btn btn-primary"></i> Edit
+                         </Link>
+                        <button className="btn btn-primary" tag={Link} to={"/ListeProduitEdit/" + produit.id}>Éditer</button>
+                        <button className="btn btn-danger ml-2" onClick={() => this.remove(produit.id)}>Effacer</button>
                     </td>
                 </tr>
             )
