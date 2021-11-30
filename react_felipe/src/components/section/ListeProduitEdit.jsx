@@ -1,10 +1,7 @@
 import React, { Component }  from "react"
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
 import Main from "../template/Main"
-
-
-
 
 
 class ListeProduitsEdit extends Component {
@@ -15,6 +12,7 @@ class ListeProduitsEdit extends Component {
         prix: "",
         rabais: ""
     }
+    
 
     constructor(props) {
         super(props)
@@ -26,11 +24,12 @@ class ListeProduitsEdit extends Component {
     }
 
     async componentDidMount() {
-        console.log(this.props.match && this.props.match.params.id)
+
         if (this.props.match.params.id !== 'new') {
-          const group = await (await fetch(`/api/produits/${this.props.match.params.id}`)).json();
+          const group = await (await fetch(`/api/produits/1`)).json();
           this.setState({item: group})
         }
+
     }
 
     handleChange(event) {

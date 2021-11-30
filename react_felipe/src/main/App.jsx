@@ -1,8 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import React from 'react'
+import React, {Fragment} from 'react'
 import { BrowserRouter } from 'react-router-dom'
-
 import Nav from '../components/template/Nav'
 import Routes from './Routes'
 
