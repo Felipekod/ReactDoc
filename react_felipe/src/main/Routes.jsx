@@ -2,14 +2,14 @@ import React from "react";
 import {Switch, Route, Redirect} from 'react-router'
 import { BrowserRouter, Routes } from 'react-router-dom'
 import Home from '../components/home/Home'
-import Exercice_1 from "../components/section/Exercice_1";
-import Exercice_2 from "../components/section/Exercice_2";
-import Exercice_3 from "../components/section/Exercice_3";
-import Exercice_4 from "../components/section/Exercice_4";
-import Exercice_5 from "../components/section/Exercice_5";
-import Exercice_6 from "../components/section/Exercice_6";
-import Exercice_7 from "../components/section/Exercice_7";
-import Exercice_8 from "../components/section/Exercice_8";
+import Exercice_1 from "../components/section/Timer_State";
+import Exercice_2 from "../components/section/Login_Control";
+import Exercice_3 from "../components/section/List_Keys";
+import Exercice_4 from "../components/section/Photos_Node";
+import Exercice_5 from "../components/section/React_Photo_Gallery";
+import Exercice_6 from "../components/section/Forms";
+import Exercice_7 from "../components/section/Liffiting_State";
+import Exercice_8 from "../components/section/CRUD_Spring_Boot";
 import ListeProduitEdit from "../components/section/ListeProduitEdit"
 
 
