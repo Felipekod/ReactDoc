@@ -2,30 +2,32 @@ import React from "react";
 import {Switch, Route, Redirect} from 'react-router'
 import { BrowserRouter, Routes } from 'react-router-dom'
 import Home from '../components/home/Home'
-import Exercice_1 from "../components/section/Timer_State";
-import Exercice_2 from "../components/section/Login_Control";
-import Exercice_3 from "../components/section/List_Keys";
-import Exercice_4 from "../components/section/Photos_Node";
-import Exercice_5 from "../components/section/React_Photo_Gallery";
-import Exercice_6 from "../components/section/Forms";
-import Exercice_7 from "../components/section/Liffiting_State";
-import Exercice_8 from "../components/section/CRUD_Spring_Boot";
+import Timer_State from "../components/section/Timer_State";
+import Login_Control from "../components/section/Login_Control";
+import List_Keys from "../components/section/List_Keys";
+import Photos_Node from "../components/section/Photos_Node";
+import React_Photo_Gallery from "../components/section/React_Photo_Gallery";
+import Forms from "../components/section/Forms";
+import Liffiting_State from "../components/section/Liffiting_State";
+import CRUD_Sp from "../components/section/CRUD_Spring_Boot";
 import ListeProduitEdit from "../components/section/ListeProduitEdit"
+import NavResponsive from "../components/section/NavResponsive";
 
 
 
 export default props => 
         <Switch>
             <Route exact path='/' component={Home}/>
-            <Route path='/exercice_1' component={Exercice_1}/>
-            <Route path="/exercice_2"><Exercice_2/></Route>
-            <Route path="/exercice_3"><Exercice_3/></Route>
-            <Route path="/exercice_4"><Exercice_4/></Route>
-            <Route path="/exercice_5"><Exercice_5/></Route>
-            <Route path="/exercice_6"><Exercice_6/></Route>
-            <Route path="/exercice_7"><Exercice_7/></Route>
-            <Route path="/exercice_8"><Exercice_8/></Route>
+            <Route path='/Timer_State' component={Timer_State}/>
+            <Route path="/Login_Control"><Login_Control/></Route>
+            <Route path="/List_Keys"><List_Keys/></Route>
+            <Route path="/Photos_Node"><Photos_Node/></Route>
+            <Route path="/React_Photo_Gallery"><React_Photo_Gallery/></Route>
+            <Route path="/Forms"><Forms/></Route>
+            <Route path="/Liffiting_State"><Liffiting_State/></Route>
+            <Route path="/CRUD_Spring_Boot"><CRUD_Sp/></Route>
             <Route path='/ListeProduitEdit/:id'><ListeProduitEdit/></Route>
+            <Route path='/NavResponsive'><NavResponsive/></Route>
             <Redirect from='*' to='/' />
         </Switch>
    

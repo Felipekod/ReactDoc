@@ -56,7 +56,7 @@ class LoginControl extends React.Component{
 
 export default props => 
     <Main icon="home" title="Exercices 2" subtittle="Portifolio">
-        <div className='display-4'>Exercices 2!</div>
+        <div className='display-4'>Login control!</div>
         <hr/>
         <LoginControl isLoggedIn={false}/>
     </Main>

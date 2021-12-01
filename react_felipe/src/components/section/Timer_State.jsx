@@ -107,7 +107,7 @@ class Timer extends React.Component{
 
 export default props => 
     <Main icon="home" title="Exercices 1" subtittle="Portifolio">
-        <div className='display-4'>Exercices 1!</div>
+        <div className='display-4'>Timer State!</div>
         <hr/>
         <p className="mb-0">Format name: {formatName(user)}</p>
         <hr/>

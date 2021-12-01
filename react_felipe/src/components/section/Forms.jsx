@@ -1,5 +1,5 @@
 import React from 'react'
-import Main from '../../components/template/Main'
+import Main from '../template/Main'
 import './Exercice_6.css'
 
 class NameForm extends React.Component {

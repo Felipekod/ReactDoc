@@ -1,5 +1,5 @@
 import React from 'react'
-import Main from '../../components/template/Main'
+import Main from '../template/Main'
 
 const scaleNames = {
     c: 'Celsius',

@@ -22,7 +22,7 @@ function NumberList(props){
 
 export default props => 
     <Main icon="home" title="Exercices 3" subtittle="Portifolio">
-        <div className='display-4'>Exercices 3!</div>
+        <div className='display-4'>Liste et clés!</div>
         <hr/>
         <h2>Lists and Keys</h2>
         <ul>{listItems}</ul>

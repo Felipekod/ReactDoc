@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import Main from '../template/Main'
-import './Exercice_4.css'
+import './Photos_Node.css'
 
 const baseUrl = 'http://localhost:3001/photos'
 const initialState = {
@@ -50,7 +50,7 @@ class Photos extends Component {
 export default props => 
     <Main icon="home" title="Exercices 4" subtittle="Portifolio">
         <div>
-            <div className='display-4'>Exercices 4!</div>
+            <div className='display-4'>Photos avec Node!</div>
             <hr/>
             <h2>Quelques photos à moi</h2>
             <h6>Using Axios avec Node au backend</h6>

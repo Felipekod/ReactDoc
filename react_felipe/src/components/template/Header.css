@@ -8,3 +8,22 @@ header.header {
 header.header h1 {
     font-size: 1.8em;
 }
+
+.menu_header{
+    display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .menu_header{
+        display: inline-block;
+        height: 30px;
+    }
+    .menu_header a.icon {
+        float: left;
+        height: 50px;
+        width: 40px;
+        color: lightcoral;
+        font-weight: 700;
+      }
+  }
