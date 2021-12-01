@@ -1,10 +1,7 @@
 import React, {Component} from 'react'
-import axios from 'axios'
 import Main from '../template/Main'
-import APIService from './APIService'
-import ListeEdit from './ListeProduitEdit'
 import { Link, withRouter } from 'react-router-dom'
-import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap'
+import './CRUD_Spring_Boot.css'
 
 const baseUrl = '/api/products'
 const initialState = {
@@ -14,8 +11,8 @@ const initialState = {
 const config = {mode: 'cors', // no-cors, *cors, same-origin
 credentials: 'same-origin', // include, *same-origin, omit
 headers: { 
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
+    "Accept": 'application/json',
+    "Content-Type": "application/json; charset=UTF-8"
  }};
 
 class Produits extends Component {
@@ -40,12 +37,29 @@ class Produits extends Component {
     //Function PUT / POST
     async save() {
         const {produit} = this.state
+
+        console.log(produit)
+        console.log(JSON.stringify( 
+            {
+                id: produit.id,
+                nom: produit.nom,
+                prix: parseFloat(produit.prix),
+                rabais: parseFloat(produit.rabais)
+            }
+        ))
+
+
         const requestOptions = {
             method: (produit.id) ? 'PUT' : 'POST',
-            body: JSON.stringify(produit),
+            body: JSON.stringify({
+                id: produit.id,
+                nom: produit.nom,
+                prix: parseFloat(produit.prix),
+                rabais: parseFloat(produit.rabais)
+            }),
             ...config
         };
-        debugger;
+        //debugger;
         fetch(baseUrl, requestOptions);
 
       }
@@ -59,8 +73,8 @@ class Produits extends Component {
                     <td>{produit.prix}</td>
                     <td>{produit.rabais}</td>
                     <td>
-                        <button className="btn btn-primary" onClick={() => this.load(produit)}>Éditer</button>
-                        <button className="btn btn-danger ml-2" onClick={() => this.remove(produit.id)}>Effacer</button>
+                        <button  id="btn-editer" className="btn btn-primary" onClick={() => this.load(produit)}>Éditer</button>
+                        <button id="btn-effacer" className="btn btn-danger ml-2" onClick={() => this.remove(produit.id)}>Effacer</button>
                     </td>
                 </tr>
             )
@@ -122,10 +136,10 @@ class Produits extends Component {
                         </div>
                     </div>
                     <div className="row">
-                    <div className="col-12 d-flex justify-content-end">
-                        <button className="btn btn-primary"
+                    <div id="div-btn" className="col-12 d-flex justify-content-end">
+                        <button id="btn-enregistrer" className="btn btn-primary"
                                 onClick={e => this.save(e)}>Enregistrer</button>
-                        <button className="btn btn-secondary ml-2"
+                        <button id="btn-annuler" className="btn btn-secondary ml-2"
                                 onClick={e => this.clear(e)}> Annuler</button>
                     </div>
                 </div>

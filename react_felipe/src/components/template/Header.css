@@ -1,7 +1,7 @@
 header.header {
-    background-color: #fff;
+    background-color: #ffff;
     padding: 0px 15px;
-    overflow: hidden;
+    overflow: visible;
     white-space: nowrap;
     box-shadow: var(--shadow);
 }
@@ -13,11 +13,26 @@ header.header h1 {
     display: none;
 }
 
+#header-responsive{
+    overflow: visible;
+}
 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 650px) {
+    header.header{
+        background-color: rgba(85, 85, 85, 0.081);
+    }
+
+    #header-responsive{
+        display: flex;
+        flex-direction: row;
+        width: wrap;
+    }
     .menu_header{
-        display: inline-block;
+        display: inline-flex;
+        flex-direction: row;
         height: 30px;
+        font-size: 30px;
     }
     .menu_header a.icon {
         float: left;
@@ -25,5 +40,21 @@ header.header h1 {
         width: 40px;
         color: lightcoral;
         font-weight: 700;
-      }
+    }
+    .nom{
+        float: right;
+        margin-right: 35%;
+    }
   }
+
+  @media only screen and (max-width: 576px) { 
+    header.header {
+        display:flexbox;
+        overflow: visible;
+        }
+        .d-sm-flex {
+            display: -ms-flexbox!important;
+            display: flex!important;
+        }
+  }
+

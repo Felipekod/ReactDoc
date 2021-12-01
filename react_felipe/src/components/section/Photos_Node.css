@@ -34,7 +34,7 @@
     padding: 2px 16px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
 
     .picture_box{
         display: inline-block;
@@ -64,5 +64,17 @@
         max-height: 400px;
         width: 100%;
         border-radius: 10px 10px 0 0;
+    }
+  }
+
+  @media only screen and (max-width: 580px) {
+    .picture {
+        max-width: 430px;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .picture {
+        max-width: 380px;
     }
   }
