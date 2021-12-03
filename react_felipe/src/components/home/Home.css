@@ -1,0 +1,16 @@
+.bienvenue-felipe{
+    height: 100vh;
+    text-align: center;
+    padding-top: 30vh;
+}
+.bienvenue-felipe h1{
+    color: #ffff;
+    font-size: 7rem;
+}
+
+.bienvenue-felipe p{
+    color: #ffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+

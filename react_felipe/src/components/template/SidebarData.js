@@ -40,5 +40,11 @@ export const SidebarData = [
         path: '/CRUD_Spring_Boot',
         icon: <IoIcons.IoMdHelpCircle />,
         cName: 'nav-text'
+    },
+    {
+        title: 'Calculatrice',
+        path: '/calculatrice/Calculator',
+        icon: <IoIcons.IoMdHelpCircle />,
+        cName: 'nav-text'
     }
 ]

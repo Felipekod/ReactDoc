@@ -2,6 +2,7 @@ import React from 'react'
 import Main from '../template/Main'
 import './Money.css'
 import coinsImg from '../../assets/vector/306.jpg'
+import * as IoIcons from "react-icons/io"
 
 const secondesAnee = 31557600
 
@@ -110,13 +111,22 @@ class Timer extends React.Component{
         return ( 
             <div className='container-timer'>
                 <SalaireForm onSalaireChange={this.handleSalaireChange} />
-                <div><h3> </h3> <h3>{this.state.compteur}</h3></div>
+                <div className='container-timer-secs'>
+                    <h3><IoIcons.IoMdTime /></h3> <h3>{this.state.compteur}</h3>
+                </div>
+                <ul className='container-timer-liste'>
+                    <li>
+                        <h3>Vous</h3>
+                        <h3>{this.currencyFormat(this.state.utilisateurWage)}</h3>
+                    </li>
+                    <li>
+                        <h3>Musk</h3>
+                        <h3>{this.currencyFormat(this.state.muskWage)}</h3>
+                    </li>
+                </ul>
                 
-
-                <h3>{this.currencyFormat(this.state.muskWage)}</h3>
-                <h3>{this.currencyFormat(this.state.utilisateurWage)}</h3>
-                <button className="btn btn-primary ml-1" onClick={this.resetTimer}>Stop</button>
-                <button className="btn btn-primary  ml-1"  onClick={this.start}>START</button>
+                <button className="btn btn-danger ml-1 btn-musk" onClick={this.resetTimer}>Stop</button>
+                <button className="btn btn-success  ml-1 btn-musk"  onClick={this.start}>START</button>
             </div>
         )
     }
@@ -132,9 +142,11 @@ export default props =>
             <div className='card-money'>
                 <h2>Money!</h2>
                 <div id='card-money-inside'>
-                    <p>Il y en a 31.557.600 secondes dans 1 année.<br/>
-                    Si vous divise votre salaire pour la quantité de secondes dans une année on peut calculer combiens d'argent tu gagnes à chaque seconde.<br/>
-                    Puis comparé avec Elon Musk qui a augmenté sa fortune en 126.4 milliards dans une année</p>
+                    <p>Il y en a 31.557.600 secondes dans 1 année. Savez vous combien d'argent vous faites par seconde?<br/>
+                    
+                    <br/>Si vous divise votre salaire pour la quantité de secondes dans une année on peut calculer combiens d'argent tu gagnes à chaque seconde.<br/>
+                    
+                    <br/>Comparé avec Elon Musk qui a augmenté sa fortune en 126.4 milliards dans une année!</p>
                     <hr/>
                     <Timer />
                 </div>

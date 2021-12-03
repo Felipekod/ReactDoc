@@ -13,6 +13,7 @@
     padding: 20px;
     border-radius: 15px;
     backdrop-filter: blur(4px);
+    box-shadow: 6px 6px 20px 3px rgba(87, 112, 93, 0.247)
 }
 
 .card-money h2 {
@@ -25,7 +26,7 @@
 }
 
 #card-money-inside {
-    background-color: rgba(206, 252, 237, 0.644);
+    background-color: rgba(221, 253, 243, 0.87);
     padding: 25px;
     border-radius: 15px;
     backdrop-filter: blur(3px);
@@ -40,6 +41,15 @@
 .container-timer {
     text-align: center;
 }
+
+.container-timer-secs {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.container-timer-secs h3 {
+    margin-left: 10px;
+}
 .container-timer label{
     font-size: 1.5rem;
 }
@@ -48,4 +58,19 @@
     margin-left: 20px;
     border-radius: 10px;
     border:rgba(144, 196, 175, 0);
+}
+
+.container-timer-liste {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    list-style-type: none;
+    justify-content:space-around
+}
+
+.btn-musk{
+    height: 70px;
+    width: 100px;
+    margin-right: 20px;
+    margin-left: 20px;
 }
