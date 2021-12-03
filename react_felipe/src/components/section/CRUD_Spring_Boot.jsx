@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Main from '../template/Main'
-import { Link, withRouter } from 'react-router-dom'
 import './CRUD_Spring_Boot.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const baseUrl = '/api/products'
 const initialState = {

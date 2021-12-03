@@ -67,14 +67,38 @@
     }
   }
 
+  @media only screen and (max-width: 865px) {
+    .picture {
+        max-width: 730px;
+    }
+    .picture_list { 
+        max-width: 740px;
+    }
+  }
+
   @media only screen and (max-width: 580px) {
     .picture {
         max-width: 430px;
+    }
+    .picture_list { 
+        max-width: 440px;
     }
   }
 
   @media only screen and (max-width: 480px) {
     .picture {
         max-width: 380px;
+    }
+    .picture_list { 
+        max-width: 390px;
+    }
+  }
+
+  @media only screen and (max-width: 375px) {
+    .picture {
+        max-width: 360px;
+    }
+    .picture_list { 
+        max-width: 335px;
     }
   }

@@ -12,6 +12,7 @@ import Liffiting_State from "../components/section/Liffiting_State";
 import CRUD_Sp from "../components/section/CRUD_Spring_Boot";
 import ListeProduitEdit from "../components/section/ListeProduitEdit"
 import NavResponsive from "../components/section/NavResponsive";
+import Money from "../components/section/Money";
 
 
 

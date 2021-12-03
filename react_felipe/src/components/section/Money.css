@@ -1,0 +1,51 @@
+.container-money {
+    max-width: 100vh;
+    margin: auto auto;
+    background-color: rgba(163, 206, 189, 0.233);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.card-money{
+    max-width: 60vh;
+    margin: auto auto;
+    background-color: rgba(144, 196, 175, 0.233);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(4px);
+}
+
+.card-money h2 {
+    font-size: 3.4rem;
+    color: rgb(22, 22, 22);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+#card-money-inside {
+    background-color: rgba(206, 252, 237, 0.644);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(3px);
+}
+
+.card-money p {
+    color: rgb(22, 22, 22);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.container-timer {
+    text-align: center;
+}
+.container-timer label{
+    font-size: 1.5rem;
+}
+
+.container-timer input{
+    margin-left: 20px;
+    border-radius: 10px;
+    border:rgba(144, 196, 175, 0);
+}
