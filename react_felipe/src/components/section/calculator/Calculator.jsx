@@ -14,6 +14,7 @@ const initialState = {
     current: 0
 }
 
+
 export default class Calculator extends Component {
 
     state = { ...initialState }
@@ -23,6 +24,28 @@ export default class Calculator extends Component {
         this.clearMemory = this.clearMemory.bind(this)
         this.setOperation = this.setOperation.bind(this)
         this.addDigit = this.addDigit.bind(this)
+    }
+
+    componentDidMount(){
+
+        //Donne mobilité à la calculatrice.
+        const item = document.getElementById("calculator-mover-select")
+        //on recupere la position
+
+        item.onmousemove = e => {
+            const calculator = document.getElementById("calculator-mover")
+            //On cchange la position
+            calculator.style.position = 'absolute'
+
+            const item = e.target
+            item.style.cursor = 'move'
+            
+            if (e.buttons){
+                calculator.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+                calculator.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+
+            }
+        }
     }
 
     clearMemory() {
@@ -91,7 +114,7 @@ export default class Calculator extends Component {
                                                   backgroundSize: 'cover',
                                                   backgroundRepeat: 'no-repeat'}}>
                     <div className='calculator-blur-box'>
-                        <div className="calculator">
+                        <div id="calculator-mover" className="calculator">
                             <Display value={this.state.displayValue}/>
                             <Button label="AC" click={this.clearMemory} triple/>
                             <Button label="/" click={this.setOperation} operation/>
@@ -113,6 +136,9 @@ export default class Calculator extends Component {
                         </div>
                     </div>
                 </div>
+
+
+
             </Main>
         )
     }
