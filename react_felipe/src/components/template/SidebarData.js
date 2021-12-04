@@ -43,7 +43,13 @@ export const SidebarData = [
     },
     {
         title: 'Calculatrice',
-        path: '/calculatrice/Calculator',
+        path: '/calculator/Calculator',
+        icon: <IoIcons.IoMdHelpCircle />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Investment',
+        path: '/investment/Investment',
         icon: <IoIcons.IoMdHelpCircle />,
         cName: 'nav-text'
     }

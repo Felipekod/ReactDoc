@@ -34,13 +34,13 @@ export default class Calculator extends Component {
 
         item.onmousemove = e => {
             const calculator = document.getElementById("calculator-mover")
-            //On cchange la position
-            calculator.style.position = 'absolute'
 
             const item = e.target
             item.style.cursor = 'move'
             
             if (e.buttons){
+                //On change la position
+                calculator.style.position = 'absolute'
                 calculator.style.top = `${e.clientY - (item.clientHeight / 2)}px`
                 calculator.style.left = `${e.clientX - (item.clientWidth / 2)}px`
 
@@ -135,10 +135,8 @@ export default class Calculator extends Component {
                             <Button label="=" click={this.setOperation} operation/>
                         </div>
                     </div>
+
                 </div>
-
-
-
             </Main>
         )
     }

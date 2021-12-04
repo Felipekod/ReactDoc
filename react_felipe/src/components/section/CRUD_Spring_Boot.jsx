@@ -13,12 +13,20 @@ credentials: 'same-origin', // include, *same-origin, omit
 headers: { 
     "Accept": 'application/json',
     "Content-Type": "application/json; charset=UTF-8"
- }};
+ }}
+
 
 class Produits extends Component {
     state = {...initialState}
 
     async componentDidMount(){
+        const response = await fetch(baseUrl, config);
+        const body = await response.json();
+        this.setState({list: body});
+    }
+
+    //mettre à jours la table
+    async refreshTable(){
         const response = await fetch(baseUrl, config);
         const body = await response.json();
         this.setState({list: body});
@@ -38,17 +46,6 @@ class Produits extends Component {
     async save() {
         const {produit} = this.state
 
-        console.log(produit)
-        console.log(JSON.stringify( 
-            {
-                id: produit.id,
-                nom: produit.nom,
-                prix: parseFloat(produit.prix),
-                rabais: parseFloat(produit.rabais)
-            }
-        ))
-
-
         const requestOptions = {
             method: (produit.id) ? 'PUT' : 'POST',
             body: JSON.stringify({
@@ -59,10 +56,12 @@ class Produits extends Component {
             }),
             ...config
         };
-        //debugger;
-        fetch(baseUrl, requestOptions);
 
-      }
+        fetch(baseUrl, requestOptions)
+        //On mettre à jour la page
+        window.location.reload(false)
+        
+    }
 
     renderLi(){
         return this.state.list.map(produit => {
