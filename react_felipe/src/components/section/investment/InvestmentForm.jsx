@@ -5,7 +5,7 @@ import Main from '../../template/Main'
 export default class SalaireForm extends React.Component {
     constructor(props){
         super(props)
-        this.state= {startingAmount: '', totalMonths: '', returnRate: '', monthlyContribuition: ''}
+        this.state= {startingAmount: '', totalMonths: '', returnRate: '', monthlyContribution: ''}
 
         //bind
         this.handleChange = this.handleChange.bind(this)
@@ -24,7 +24,7 @@ export default class SalaireForm extends React.Component {
     }
     //Print test console.log
     printState(){
-        console.log('STATE = '+ this.state.monthlyContribuition)
+        console.log('STATE = '+ this.state.monthlyContribution)
     }
 
     //On envoie les champs pour calculer
@@ -32,7 +32,7 @@ export default class SalaireForm extends React.Component {
         const fields =  {startingAmount: this.state.startingAmount,
                          totalMonths: this.state.totalMonths,
                          returnRate: this.state.returnRate,
-                         monthlyContribuition: this.state.monthlyContribuition}
+                         monthlyContribution: this.state.monthlyContribution}
 
         console.log(fields)
         this.props.click(fields)
@@ -55,7 +55,7 @@ export default class SalaireForm extends React.Component {
                 </label>
                 <label>
                     Monthly contribution: 
-                    <input name='monthlyContribuition' type='text' value={this.state.monthlyContribuition} onChange={this.handleChange} />
+                    <input name='monthlyContribution' type='text' value={this.state.monthlyContribution} onChange={this.handleChange} />
                 </label>
                 <button onClick={this.sendFields}>Calculate</button>
             </form>
