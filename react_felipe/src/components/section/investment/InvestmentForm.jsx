@@ -2,25 +2,40 @@ import React from 'react'
 import Main from '../../template/Main'
 
 //Classe pour le form
-class SalaireForm extends React.Component {
+export default class SalaireForm extends React.Component {
     constructor(props){
         super(props)
-        this.state= {startingAmount: '', months: '', returnRate: '', monthlyContribuition: ''}
+        this.state= {startingAmount: '', totalMonths: '', returnRate: '', monthlyContribuition: ''}
 
         //bind
-        this.amountChange = this.amountChange.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.printState = this.printState.bind(this)
+        this.sendFields = this.sendFields.bind(this)
     }
 
-    amountChange(event){
-
-        this.setState({startingAmount: event.target.startingAmount})
+    handleChange(event){
         //Si la valeur est numerique
-        if(!isNaN(this.state.value)){
-            this.props.onSalaireChange(event.target.value)
+        if(!isNaN(event.target.value)){
+            this.setState({[event.target.name]: event.target.value})
         }
         else{
-            this.setState({value: 0})
+            this.setState({[event.target.name]: ''})
         }
+    }
+    //Print test console.log
+    printState(){
+        console.log('STATE = '+ this.state.monthlyContribuition)
+    }
+
+    //On envoie les champs pour calculer
+    sendFields(){
+        const fields =  {startingAmount: this.state.startingAmount,
+                         totalMonths: this.state.totalMonths,
+                         returnRate: this.state.returnRate,
+                         monthlyContribuition: this.state.monthlyContribuition}
+
+        console.log(fields)
+        this.props.click(fields)
     }
 
     render(){
@@ -28,26 +43,23 @@ class SalaireForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Starting amount: 
-                    <input type='text' value={this.state.startingAmount} onChange={this.handleChange} />
+                    <input name='startingAmount' type='text' value={this.state.startingAmount} onChange={this.handleChange} />
                 </label>
                 <label>
                     Total months: 
-                    <input type='text' value={this.state.months} onChange={this.handleChange} />
+                    <input name='totalMonths' type='text' value={this.state.totalMonths} onChange={this.handleChange} />
                 </label>
                 <label>
                     Return rate(annually): 
-                    <input type='text' value={this.state.returnRate} onChange={this.handleChange} />
+                    <input name='returnRate' type='text' value={this.state.returnRate} onChange={this.handleChange} />
                 </label>
                 <label>
-                    Monthly contribuiton: 
-                    <input type='text' value={this.state.monthlyContribuition} onChange={this.handleChange} />
+                    Monthly contribution: 
+                    <input name='monthlyContribuition' type='text' value={this.state.monthlyContribuition} onChange={this.handleChange} />
                 </label>
+                <button onClick={this.sendFields}>Calculate</button>
             </form>
         )
     }
 }
 
-
-
-
-export default props => <SalaireForm />

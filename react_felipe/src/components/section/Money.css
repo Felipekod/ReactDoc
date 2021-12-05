@@ -1,13 +1,13 @@
 .container-money {
-    max-width: 100vh;
     margin: auto auto;
     background-color: rgba(163, 206, 189, 0.233);
     padding: 10px;
     border-radius: 15px;
+    height: 95vh;
 }
 
 .card-money{
-    max-width: 60vh;
+    max-width: 80vh;
     margin: auto auto;
     background-color: rgba(144, 196, 175, 0.233);
     padding: 20px;
@@ -34,9 +34,11 @@
 
 .card-money p {
     color: rgb(22, 22, 22);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
 }
+
+
 
 .container-timer {
     text-align: center;
@@ -74,3 +76,32 @@
     margin-right: 20px;
     margin-left: 20px;
 }
+
+@media only screen and (max-width: 400px) {
+    .card-money p {
+        color: rgb(22, 22, 22);
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .container-timer input{
+        margin-left: 0px;
+    }
+
+    .container-timer-liste {
+        margin: 0px;
+        margin-right: 20px;
+    }
+    .container-timer-liste h3 {
+        font-size: 15px;
+        margin-right: 20px;
+    }
+    #btn-musk-stop{
+        width: 80px;
+        margin-top: 10px;
+    }
+    #btn-musk-start{
+        width: 80px;
+        margin-top: 10px;
+    }
+  }

@@ -173,9 +173,7 @@ class Produits extends Component {
 export default props => 
     <Main icon="home" title="Exercices 4" subtittle="Portifolio">
         <div>
-            <div className='display-4'>List de produits!</div>
-            <hr/>
-            <h2>Backend en Java Spring Boot</h2>
+            <h2>Liste de produits - Backend en Java Spring Boot</h2>
         </div>
         <Produits/>
     </Main>

@@ -55,6 +55,7 @@ class Timer extends React.Component{
         this.resetTimer = this.resetTimer.bind(this)
         this.start = this.start.bind(this)
         this.handleSalaireChange = this.handleSalaireChange.bind(this)
+        this.addTime = this.addTime.bind(this)
     }
     //Methodes Mount et Unmount pour le cicle de view du component
     componentDidMount(){
@@ -85,6 +86,14 @@ class Timer extends React.Component{
         this.timer = setInterval(
             ()=> this.tick(),
             1000)
+    }
+    addTime(){
+        const newCompteur =  this.state.compteur
+        //TODO
+
+        
+        console.log(newCompteur)
+        //this.setState()
     }
 
     //Calcule la taux / seconde d'Helon Musk
@@ -125,8 +134,11 @@ class Timer extends React.Component{
                     </li>
                 </ul>
                 
-                <button className="btn btn-danger ml-1 btn-musk" onClick={this.resetTimer}>Stop</button>
-                <button className="btn btn-success  ml-1 btn-musk"  onClick={this.start}>START</button>
+                <button id="btn-musk-stop" className="btn btn-danger ml-1 btn-musk" onClick={this.resetTimer}>Stop</button>
+                
+                <button id="btn-musk-start" className="btn btn-success  ml-1 btn-musk"  onClick={this.start}>START</button>
+                <button id="btn-musk-add" className="btn btn-success  ml-1 btn-musk"  onClick={this.addTime}>+1m</button>
+
             </div>
         )
     }
@@ -138,7 +150,7 @@ export default props =>
         <div className='container-money' style={{ backgroundImage: `url(${coinsImg})`,
                                                   backgroundPosition: 'center',
                                                   backgroundSize: 'cover',
-                                                  backgroundRepeat: 'no-repeat'}}>
+                                                  backgroundRepeat: 'repeat'}}>
             <div className='card-money'>
                 <h2>Money!</h2>
                 <div id='card-money-inside'>
