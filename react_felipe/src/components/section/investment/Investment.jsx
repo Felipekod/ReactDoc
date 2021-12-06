@@ -7,9 +7,12 @@ import currency from 'currency.js'
 export default class tableInvestment extends React.Component {
     constructor(props){
         super(props)
-        this.state= { table: {}}
+        this.state = {table: []}
 
         this.getFields = this.getFields.bind(this)
+        this.calculate = this.calculate.bind(this)
+        this.renderRow = this.renderRow.bind(this)
+        this.renderTable = this.renderTable.bind(this)
 
     }
 
@@ -18,80 +21,87 @@ export default class tableInvestment extends React.Component {
     }
 
     calculate(fields){
-        //debugger
-        const monthlyRate = this.monthlyRate(fields.returnRate)
-        const table = [{}]
+        const annuallyRate = currency(fields.returnRate).divide(100)
+        const table = []
         const firstAmount = currency(fields.startingAmount)
         let startPrincipal = currency(fields.startingAmount)
         let startBalance = currency(fields.startingAmount)
-        let firstInterest = startBalance.multiply((currency(monthlyRate).divide(100)))
+        let firstInterest = currency(this.calculateCompoundInterest(parseFloat(startBalance), annuallyRate))
         let totalInterest = firstInterest
         let endBalance = 0
         let endPrincipal = 0
         let monthlyContribution = currency(fields.monthlyContribution)
 
-        for (let index = 1; index <= fields.totalMonths; index++) {
+        for (let index = 0; index < fields.totalMonths; index++) {
             const lastIndex = index - 1
-            // if(index == 12)
-            // debugger
-            if(index != 1)
+            if(index !== 0)
             {
                 startPrincipal = firstAmount.add(monthlyContribution.multiply(lastIndex))
                 startBalance = startPrincipal.add(table[lastIndex].totalInterest)
             }
 
-            let interest = startBalance.multiply((currency(monthlyRate).divide(100)))
+            let interest = currency(this.calculateCompoundInterest(parseFloat(startBalance), annuallyRate))
 
-            if(index != 1)
-            totalInterest = totalInterest.add(interest)
-            //totalInterest = totalInterest.add(interest).subtract(table[lastIndex].totalInterest)
+            if(index !== 0)
+                totalInterest = totalInterest.add(interest)
 
             endBalance = startBalance.add(monthlyContribution).add(interest)
             endPrincipal = startPrincipal.add(monthlyContribution)
-                
-            const row = {startPrincipal: startPrincipal, 
-                         startBalance: startBalance,
-                         interest: interest,
-                         totalInterest: totalInterest,
-                         endBalance: endBalance,
-                         endPrincipal: endPrincipal}
-            table.push(row)
+
+            const row = {month: index,
+                         startPrincipal: startPrincipal.format(), 
+                         startBalance: startBalance.format(),
+                         interest: interest.format(),
+                         totalInterest: totalInterest.format(),
+                         endBalance: endBalance.format(),
+                         endPrincipal: endPrincipal.format()}
+
+            
+            table[index] = row     
         }
-        debugger
-        console.log(table)
-        
+
+        this.setState({table: table})
+    }
+
+    calculateCompoundInterest(p, r, t = 1/12){
+        const interest = p * (Math.pow((1 + r / 1), t)) - p;
+        return interest;
     }
 
 
-    renderTable(fields){
+    renderTable(){
         return(
             <table>
-                <tr>
-                    <th>Month</th>
-                    <th>Start principal</th>
-                    <th>Start Balance</th>
-                    <th>Interest</th>
-                    <th>End balance</th>
-                    <th>End principal</th>
-                </tr>
-                {this.renderRow(fields)}
-               
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Start principal</th>
+                        <th>Start Balance</th>
+                        <th>Interest</th>
+                        <th>End balance</th>
+                        <th>End principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.renderRow()}
+                </tbody>
             </table>
         )
     }
 
-    renderRow(fields){
-        return(
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        )
-
+    renderRow(){
+            return this.state.table.map(row => {
+                return(
+                <tr key={row.month}>
+                    <td>{row.month}</td>
+                    <td>{row.startPrincipal}</td>
+                    <td>{row.startBalance}</td>
+                    <td>{row.interest}</td>
+                    <td>{row.endBalance}</td>
+                    <td>{row.endPrincipal}</td>
+                </tr>
+                )
+            })
     }
 
     monthlyRate(annuallyRate){
@@ -106,8 +116,11 @@ export default class tableInvestment extends React.Component {
             <hr/>
             <InvestmentForm  click={this.getFields}/>
             <hr/>
+            {(this.state.table[1]) ? this.renderTable() : ''}
         </Main>
         )
     }
 }
+
+
 
