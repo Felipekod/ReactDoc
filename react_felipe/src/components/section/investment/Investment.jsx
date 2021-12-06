@@ -1,6 +1,7 @@
 import React from 'react'
 import Main from '../../template/Main'
 import InvestmentForm from './InvestmentForm'
+import currency from 'currency.js'
 
 //Classe pour le form
 export default class tableInvestment extends React.Component {
@@ -19,9 +20,9 @@ export default class tableInvestment extends React.Component {
     calculate(fields){
         const monthlyRate = this.monthlyRate(fields.returnRate)
         const table = [{}]
-        const firstAmount = parseFloat(fields.startingAmount)
-        let startPrincipal = parseFloat(fields.startingAmount)
-        let startBalance = parseFloat(fields.startingAmount)
+        const firstAmount = currency(fields.startingAmount)
+        let startPrincipal = currency(fields.startingAmount)
+        let startBalance = currency(fields.startingAmount)
         let firstInterest = parseFloat(startBalance * (monthlyRate / 100))
         let totalInterest = parseFloat(firstInterest)
         let endBalance = 0
@@ -34,7 +35,7 @@ export default class tableInvestment extends React.Component {
             
             const lastIndex = index - 1
             if(index == 12)
-             debugger
+             //debugger
             if(index != 1)
             {
                 startPrincipal = firstAmount + (lastIndex * monthlyContribution)
