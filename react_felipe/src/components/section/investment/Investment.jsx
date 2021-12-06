@@ -18,47 +18,46 @@ export default class tableInvestment extends React.Component {
     }
 
     calculate(fields){
+        //debugger
         const monthlyRate = this.monthlyRate(fields.returnRate)
         const table = [{}]
         const firstAmount = currency(fields.startingAmount)
         let startPrincipal = currency(fields.startingAmount)
         let startBalance = currency(fields.startingAmount)
-        let firstInterest = parseFloat(startBalance * (monthlyRate / 100))
-        let totalInterest = parseFloat(firstInterest)
+        let firstInterest = startBalance.multiply((currency(monthlyRate).divide(100)))
+        let totalInterest = firstInterest
         let endBalance = 0
         let endPrincipal = 0
-        let monthlyContribution = parseFloat(fields.monthlyContribution)
+        let monthlyContribution = currency(fields.monthlyContribution)
 
-
-    
         for (let index = 1; index <= fields.totalMonths; index++) {
-            
             const lastIndex = index - 1
-            if(index == 12)
-             //debugger
+            // if(index == 12)
+            // debugger
             if(index != 1)
             {
-                startPrincipal = firstAmount + (lastIndex * monthlyContribution)
-                startBalance = startPrincipal + table[lastIndex].totalInterest
-                
+                startPrincipal = firstAmount.add(monthlyContribution.multiply(lastIndex))
+                startBalance = startPrincipal.add(table[lastIndex].totalInterest)
             }
 
-            let interest = parseFloat(startBalance * (monthlyRate / 100))
+            let interest = startBalance.multiply((currency(monthlyRate).divide(100)))
 
             if(index != 1)
-            totalInterest = totalInterest + interest - table[lastIndex].totalInterest
+            totalInterest = totalInterest.add(interest)
+            //totalInterest = totalInterest.add(interest).subtract(table[lastIndex].totalInterest)
 
-            endBalance = startBalance + monthlyContribution + interest
-            endPrincipal = startPrincipal + monthlyContribution
+            endBalance = startBalance.add(monthlyContribution).add(interest)
+            endPrincipal = startPrincipal.add(monthlyContribution)
                 
             const row = {startPrincipal: startPrincipal, 
                          startBalance: startBalance,
+                         interest: interest,
                          totalInterest: totalInterest,
                          endBalance: endBalance,
                          endPrincipal: endPrincipal}
             table.push(row)
         }
-        
+        debugger
         console.log(table)
         
     }
