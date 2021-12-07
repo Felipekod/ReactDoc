@@ -52,7 +52,6 @@ export default props =>
         <div>
             <div className='display-4'>Photos avec Node!</div>
             <hr/>
-            <h2>Quelques photos à moi</h2>
             <h6>Using Axios avec Node au backend</h6>
         </div>
         

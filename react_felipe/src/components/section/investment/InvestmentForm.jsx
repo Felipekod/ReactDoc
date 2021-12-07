@@ -28,7 +28,8 @@ export default class SalaireForm extends React.Component {
     }
 
     //On envoie les champs pour calculer
-    sendFields(){
+    sendFields(e){
+        e.preventDefault()
         const fields =  {startingAmount: this.state.startingAmount,
                          totalMonths: this.state.totalMonths,
                          returnRate: this.state.returnRate,
@@ -41,23 +42,37 @@ export default class SalaireForm extends React.Component {
     render(){
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>
-                    Starting amount: 
-                    <input name='startingAmount' type='text' value={this.state.startingAmount} onChange={this.handleChange} />
-                </label>
-                <label>
-                    Total months: 
-                    <input name='totalMonths' type='text' value={this.state.totalMonths} onChange={this.handleChange} />
-                </label>
-                <label>
-                    Return rate(annually): 
-                    <input name='returnRate' type='text' value={this.state.returnRate} onChange={this.handleChange} />
-                </label>
-                <label>
-                    Monthly contribution: 
-                    <input name='monthlyContribution' type='text' value={this.state.monthlyContribution} onChange={this.handleChange} />
-                </label>
-                <button onClick={this.sendFields}>Calculate</button>
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <div className="form-group">
+                            <label>
+                            Starting amount: 
+                            <input class="form-control" name='startingAmount' type='text' value={this.state.startingAmount} onChange={this.handleChange} />
+                            </label>
+                            <label className='form-investment-input'>
+                                Total months: 
+                                <input class="form-control" name='totalMonths' type='text' value={this.state.totalMonths} onChange={this.handleChange} />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <div>
+                            <label>
+                                Return rate: 
+                                <input class="form-control" name='returnRate' type='text' value={this.state.returnRate} onChange={this.handleChange} />
+                                <small >Annually</small>
+                            </label>
+                            <label className='form-investment-input'>
+                                Monthly contribution: 
+                                <input class="form-control" name='monthlyContribution' type='text' value={this.state.monthlyContribution} onChange={this.handleChange} />
+                                <small style={{"color": "#ffff"}}>.</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-3" onClick={this.sendFields}>Calculate</button>
             </form>
         )
     }

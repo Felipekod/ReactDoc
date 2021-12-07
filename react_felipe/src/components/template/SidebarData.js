@@ -48,7 +48,7 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Investment',
+        title: 'Investment Calculator',
         path: '/investment/Investment',
         icon: <IoIcons.IoMdHelpCircle />,
         cName: 'nav-text'

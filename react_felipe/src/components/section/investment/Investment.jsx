@@ -2,6 +2,7 @@ import React from 'react'
 import Main from '../../template/Main'
 import InvestmentForm from './InvestmentForm'
 import currency from 'currency.js'
+import './Investment.css'
 
 //Classe pour le form
 export default class tableInvestment extends React.Component {
@@ -32,11 +33,12 @@ export default class tableInvestment extends React.Component {
         let endPrincipal = 0
         let monthlyContribution = currency(fields.monthlyContribution)
 
+
         for (let index = 0; index < fields.totalMonths; index++) {
             const lastIndex = index - 1
             if(index !== 0)
             {
-                startPrincipal = firstAmount.add(monthlyContribution.multiply(lastIndex))
+                startPrincipal = firstAmount.add(monthlyContribution.multiply(lastIndex + 1))
                 startBalance = startPrincipal.add(table[lastIndex].totalInterest)
             }
 
@@ -48,7 +50,7 @@ export default class tableInvestment extends React.Component {
             endBalance = startBalance.add(monthlyContribution).add(interest)
             endPrincipal = startPrincipal.add(monthlyContribution)
 
-            const row = {month: index,
+            const row = {month: index + 1,
                          startPrincipal: startPrincipal.format(), 
                          startBalance: startBalance.format(),
                          interest: interest.format(),
@@ -57,7 +59,8 @@ export default class tableInvestment extends React.Component {
                          endPrincipal: endPrincipal.format()}
 
             
-            table[index] = row     
+            table[index] = row   
+            
         }
 
         this.setState({table: table})
@@ -70,22 +73,29 @@ export default class tableInvestment extends React.Component {
 
 
     renderTable(){
+        const lastIndexCalculated = this.state.table.length - 1
         return(
-            <table>
-                <thead>
-                    <tr>
-                        <th>Month</th>
-                        <th>Start principal</th>
-                        <th>Start Balance</th>
-                        <th>Interest</th>
-                        <th>End balance</th>
-                        <th>End principal</th>
-                    </tr>
-                </thead>
+            <div className='calculated-investment'>
+                <div>
+                    <h2>End balance: {this.state.table[lastIndexCalculated].endBalance}</h2>
+                </div>
+                <table className='table table-sm  table-striped table-hover'>
+                    <thead className='thead-dark'>
+                        <tr>
+                            <th>Month</th>
+                            <th>Start principal</th>
+                            <th>Start Balance</th>
+                            <th>Interest</th>
+                            <th>End balance</th>
+                            <th>End principal</th>
+                        </tr>
+                    </thead>
                 <tbody>
                     {this.renderRow()}
                 </tbody>
             </table>
+            </div>
+
         )
     }
 
@@ -112,7 +122,7 @@ export default class tableInvestment extends React.Component {
     render(){
         return (
         <Main>
-            <div className='display-4'>Investment calculator!</div>
+            <div className='display-4 text-center'>Investment calculator</div>
             <hr/>
             <InvestmentForm  click={this.getFields}/>
             <hr/>

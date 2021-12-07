@@ -22,7 +22,43 @@ const photos = [
         src: 'https://i.imgur.com/d1VsVpx.jpg',
         width: 2,
         height: 3
+    },
+    {
+        src: "https://i.imgur.com/Exc5lqd.jpg",
+        width: 4,
+        height: 3
+    },
+    {
+        src: "https://i.imgur.com/KKsoEyL.jpg",
+        width: 4,
+        height: 3
+    },
+    {
+        src: "https://i.imgur.com/bCou4d6.jpg",
+        width: 4,
+        height: 3
+    },
+    {
+        src: "https://i.imgur.com/Vu3qZqt.jpg",
+        width: 4,
+        height: 3
+    },
+    {
+        src: "https://i.imgur.com/Xc4OWCb.jpg",
+        width: 4,
+        height: 3
+    },
+    {
+        src: "https://i.imgur.com/kD5Cumc.jpg",
+        width: 4,
+        height: 3
+    },
+    {
+        src: "https://i.imgur.com/JR5bxPB.jpg",
+        width: 4,
+        height: 3
     }
+    
 ]
 
 const BasicRows = () => <ImageGallery photos={photos} />
@@ -38,8 +74,6 @@ class MyGallery extends React.Component {
 
 export default props => 
     <Main icon="home" title="Exercices 5" subtittle="Portifolio">
-        <div className='display-4'>Exercices 5!</div>
-        <hr/>
         <h3>Framework responsive react-photo-gallery</h3>
         <BasicRows className='gallery'/>
         

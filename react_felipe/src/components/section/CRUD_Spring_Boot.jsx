@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Main from '../template/Main'
 import './CRUD_Spring_Boot.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import currency from 'currency.js'
 
 const baseUrl = '/api/products'
 const initialState = {
@@ -69,7 +70,7 @@ class Produits extends Component {
                 <tr key={produit.id}>
                     <td>{produit.id}</td>
                     <td>{produit.nom}</td>
-                    <td>{produit.prix}</td>
+                    <td>{currency(produit.prix).format()}</td>
                     <td>{produit.rabais}</td>
                     <td>
                         <button  id="btn-editer" className="btn btn-primary" onClick={() => this.load(produit)}>Éditer</button>
@@ -153,7 +154,7 @@ class Produits extends Component {
         return (
             <div>
                 {this.renderForm()}
-                <table className="table table-striped">
+                <table className="table table-sm  table-striped">
                     <tr>
                         <th>Id</th>
                         <th>Nom</th>
